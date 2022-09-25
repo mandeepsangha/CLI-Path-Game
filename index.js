@@ -87,8 +87,31 @@ keypress(process.stdin);
 
 process.stdin.on("keypress", function (ch, key) {
   shouldExit(key);
-  if (key) {
+  if (
+    key.name == "u" ||
+    key.name == "d" ||
+    key.name == "l" ||
+    key.name == "r" ||
+    key.name == "p" ||
+    key.name == "e"
+  ) {
     sendMessage(key);
+
+    let lastItem = pathStorageArray.slice(-1);
+
+    output[yCoord][xCoord] = `[ ]`;
+    if (lastItem < 10) {
+      xCoord = lastItem;
+      yCoord = 0;
+    } else {
+      xCoord = parseInt(lastItem.toString().split("")[1]);
+      yCoord = parseInt(lastItem.toString().split("")[0]);
+    }
+    output[yCoord][xCoord] = `[X]`;
+    displayBoard(output);
+  } else {
+    console.log("Unknown command");
+    console.log("enter another command");
   }
 });
 
@@ -121,3 +144,17 @@ function sendMessage(key) {
       console.log("please enter a command");
   }
 }
+
+function printPath(array) {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] < 10) {
+        xCoord = 0;
+        yCoord = array[i];
+        output[xCoord][yCoord] = chalk.bgBlue(`[X]`);
+      } else {
+        xCoord = parseInt(array[i].toString().split("")[0]);
+        yCoord = parseInt(array[i].toString().split("")[1]);
+        output[xCoord][yCoord] = chalk.bgBlue(`[X]`);
+      }
+    }
+  }
