@@ -127,34 +127,42 @@ function shouldExit(key) {
 function sendMessage(key) {
   switch (key.name) {
     case "u":
-      console.log(`you moved to ${letterToIndex(key.name)}`);
-      break;
+      letterToIndex(key.name);
+      console.log("enter another command");
     case "d":
-      console.log(`you moved down to ${letterToIndex(key.name)}`);
+      letterToIndex(key.name);
+      console.log("enter another command");
       break;
     case "r":
-      console.log(`you moved right to ${letterToIndex(key.name)}`);
+      letterToIndex(key.name);
+      console.log("enter another command");
       break;
     case "l":
-      console.log(`you moved left to ${letterToIndex(key.name)}`);
+      letterToIndex(key.name);
+      console.log("enter another command");
+      break;
+    case "p":
+      letterToIndex(key.name);
+      console.log("enter another command");
       break;
     case "e":
       process.stdin.pause();
+      break;
     default:
       console.log("please enter a command");
   }
 }
 
 function printPath(array) {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] < 10) {
-        xCoord = 0;
-        yCoord = array[i];
-        output[xCoord][yCoord] = chalk.bgBlue(`[X]`);
-      } else {
-        xCoord = parseInt(array[i].toString().split("")[0]);
-        yCoord = parseInt(array[i].toString().split("")[1]);
-        output[xCoord][yCoord] = chalk.bgBlue(`[X]`);
-      }
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] < 10) {
+      xCoord = 0;
+      yCoord = array[i];
+      output[xCoord][yCoord] = chalk.bgBlue(`[X]`);
+    } else {
+      xCoord = parseInt(array[i].toString().split("")[0]);
+      yCoord = parseInt(array[i].toString().split("")[1]);
+      output[xCoord][yCoord] = chalk.bgBlue(`[X]`);
     }
   }
+}
