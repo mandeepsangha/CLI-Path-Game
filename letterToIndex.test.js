@@ -68,7 +68,7 @@ test("#5 user input is u on top row of grid", () => {
   expect(letterToIndex("u")).toBe(0);
 });
 
-test("#7 user input is d on bottom row of grid", () => {
+test("#6 user input is d on bottom row of grid", () => {
   position = 90;
   expect(letterToIndex("d")).toBe(90);
 });
@@ -78,7 +78,7 @@ test("#7 user input is l on bottom row of grid", () => {
   expect(letterToIndex("l")).toBe(60);
 });
 
-test("#6 user input is r on right most column of grid", () => {
+test("#8 user input is r on right most column of grid", () => {
   position = 39;
   expect(letterToIndex("r")).toBe(39);
 });

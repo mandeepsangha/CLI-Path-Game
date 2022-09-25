@@ -30,7 +30,7 @@ let xCoord = 0;
 let yCoord = 0;
 output[xCoord][yCoord] = `[X]`;
 console.log(
-  "Acceptable inputs are\n-u: move the cursor upwards 1 block\n-d: move the cursor downwards 1 block\n-l: move the cursor left 1 block\n-r: move the cursor right 1 block\n-p: print the cursor path\n-e: exit the application"
+  "Acceptable inputs are\n-u: move the cursor upwards 1 block\n-d: move the cursor downwards 1 block\n-l: move the cursor left 1 block\n-r: move the cursor right 1 block\n-p: print the cursor path\n-e: exit the application\n"
 );
 displayBoard(output);
 
