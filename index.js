@@ -80,8 +80,6 @@ function letterToIndex(inputCharacter) {
   }
 }
 
-//console.log(letterToIndex("d"));
-
 //keypress package turn on or off here
 keypress(process.stdin);
 
@@ -99,7 +97,6 @@ process.stdin.on("keypress", function (ch, key) {
 
     let lastItem = pathStorageArray.slice(-1);
 
-    output[yCoord][xCoord] = `[ ]`;
     if (lastItem < 10) {
       xCoord = lastItem;
       yCoord = 0;
@@ -111,7 +108,7 @@ process.stdin.on("keypress", function (ch, key) {
     displayBoard(output);
   } else {
     console.log("Unknown command");
-    console.log("enter another command");
+    console.log("Please enter another command");
   }
 });
 
