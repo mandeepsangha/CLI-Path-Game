@@ -1,5 +1,5 @@
-//const chalk = require("chalk");
-const keypress = require("keypress");
+import chalk from "chalk";
+import keypress from "keypress";
 
 let displayBoard = (board) => {
   var buffer = "";
@@ -13,8 +13,8 @@ let displayBoard = (board) => {
 };
 
 let createBoard = (width, height) => {
-  board = [];
-  row = [];
+  let board = [];
+  let row = [];
   for (var i = 0; i < width; i++) {
     for (var j = 0; j < height; j++) {
       row.push("[ ]");
@@ -80,4 +80,44 @@ function letterToIndex(inputCharacter) {
   }
 }
 
-console.log(letterToIndex("d"));
+//console.log(letterToIndex("d"));
+
+//keypress package turn on or off here
+keypress(process.stdin);
+
+process.stdin.on("keypress", function (ch, key) {
+  shouldExit(key);
+  if (key) {
+    sendMessage(key);
+  }
+});
+
+process.stdin.setRawMode(true);
+process.stdin.resume();
+
+function shouldExit(key) {
+  if (key && key.ctrl && key.name == "c") {
+    process.stdin.pause();
+  }
+}
+
+function sendMessage(key) {
+  switch (key.name) {
+    case "u":
+      console.log(`you moved to ${letterToIndex(key.name)}`);
+      break;
+    case "d":
+      console.log(`you moved down to ${letterToIndex(key.name)}`);
+      break;
+    case "r":
+      console.log(`you moved right to ${letterToIndex(key.name)}`);
+      break;
+    case "l":
+      console.log(`you moved left to ${letterToIndex(key.name)}`);
+      break;
+    case "e":
+      process.stdin.pause();
+    default:
+      console.log("please enter a command");
+  }
+}

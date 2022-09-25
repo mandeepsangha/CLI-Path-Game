@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "How to compile and run the application Before you run, make sure you have node.js (includes npm)",
   "main": "index.js",
+  "type": "module",
   "dependencies": {
-    "chalk": "^4.1.2",
+    "chalk": "^5.0.1",
     "keypress": "^0.2.1",
     "node": "^18.9.1"
   },
